@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block top %}
+<a class="btn btn-secondary btn-lg" href="/">На главную</a>
+
+{% endblock %}
+
+{% block content %}
+    <h1>Новое объявление</h1>
+    <form class="login_form" action="" method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <p>
+            <h2>{{form.type_advertisement.label}}</h2>
+            {{form.type_advertisement(class="form-select")}}
+            {% for error in form.type_advertisement.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            <h2>{{form.breed.label}}</h2>
+            {{form.breed(class="form-select")}}
+            {% for error in form.breed.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            <h2>{{ form.title.label }}</h2>
+            {{ form.title(class="form-control") }}<br>
+            {% for error in form.title.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            <h2>{{ form.description.label }}</h2>
+            {{ form.description(class="form-control") }}<br>
+            {% for error in form.title.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            <h2>{{form.pet_color.label}}</h2>
+            {{form.pet_color(class="form-select")}}
+            {% for error in form.pet_color.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            <h2>{{form.age.label}}</h2>
+            {{form.age(class="form-select")}}
+            {% for error in form.age.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            <h2>{{ form.cost.label }}</h2>
+            {{ form.cost(class="form-control") }}<br>
+            {% for error in form.cost.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            <h2>{{form.male.label}}</h2>
+            {{ form.male(class="form-group")}}
+            {% for error in form.male.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            <div class="form-group">
+                <label for="photo">Загрузите ваши фотографии на сервер</label>
+                <input type="file" enctype="multipart/form-data" class="form-control-file" id="photo" name="file">
+            </div>
+        </p>
+        
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <div>{{ message }}</div>
+    </form>
+{% endblock %}

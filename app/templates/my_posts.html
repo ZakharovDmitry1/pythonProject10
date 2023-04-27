@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block top %}
+<a class="btn btn-secondary btn-lg" href="/">На главную</a>
+
+{% endblock %}
+
+{% block content %}
+<h1>Мои посты</h1>
+<h2 class="main-title">нашлось {{posts.__len__()}} ваших постов.</h2>
+<!-- Сетка карточек товаров -->
+<div class="cards">
+    {% for post in posts %}
+    <!-- Карточка товара -->
+    <div class="card">
+        <!-- Верхняя часть -->
+        <div class="card__top">
+            <!-- Изображение-ссылка товара -->
+            <a href="#" class="card__image">
+                <img src="/static/img/{{post.image}}" alt="Error" />
+            </a>
+            <!-- Скидка на товар -->
+            <div class="card__label">-10%</div>
+        </div>
+        <!-- Нижняя часть -->
+        <div class="card__bottom">
+            <!-- Цены на товар (с учетом скидки и без)-->
+
+            <div class="card__prices">
+                <div class="card__price card__price--discount">{{post.cost}}</div>
+                <div class="card__price card__price--common">{{(post.cost * 1.1)|int}}</div>
+            </div>
+            <div class="truncate">
+                <p class="test">{{post.description}}</p>
+    
+            </div>
+            <!-- Кнопка добавить в корзину -->
+<!--             <form class="card__prices" action="/cat_buy/{{post.id}}">
+                <button class="card__add">Удалить</button>
+                <button class="card__add">Изменить</button>
+            </form> -->
+            <div>
+                <a class="card__add2" href="/post_delete/{{post.id}}">Удалить</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

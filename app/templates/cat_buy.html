@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block implementations %}
+<link rel="stylesheet" href="../static/css/cat_buy.css">
+{% endblock %}
+
+
+
+{% block content %}
+<!-- Left Column / Headphones Image -->
+<div class="left-column">
+    <img src="/static/img/{{post.image}}" alt="" />
+</div>
+
+<!-- Right Column --></pre>
+<div class="right-column"><!-- Product Description -->
+    <h4>{{post.title}}</h4>
+    <table class="pro-mobil-content">
+        <tbody>
+            <tr>
+                <td class="grey-text">Номер объявления:</td>
+                <td>{{post.id}}</td>
+            </tr>
+            <tr>
+                <td class="grey-text">Порода:</td>
+                <td>
+                    <a href="https://yandex.ru/search/?text={{post.breed}}" class="link-green-border">
+                        {{post.breed}} </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="grey-text">Возраст питомца:</td>
+                <td>
+                    <span>{{post.age}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="grey-text">Тип объявления:</td>
+                <td><span>{{post.type_post}}</span></td>
+            </tr>
+            <tr>
+                <td class="grey-text">Пол:</td>
+                <td><span>{{post.male}}</span></td>
+            </tr>
+            <tr>
+                <td class="grey-text">Номер телефона продавца:</td>
+                <td><span>{{post.user.phone}}</span></td>
+            </tr>
+            <tr>
+                <td class="grey-text">Емайл продавца:</td>
+                <td><span>{{post.user.email}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <tr>
+        <td class="grey-text">Стоимость данного котика:</td>
+        <td><span>{{post.cost}} рублей</span></td>
+    </tr>
+    <p></p>
+
+    <h1>Описание</h1>
+
+    <p></p>
+
+    <p class="description test">{{post.description}}</p>
+</div>
+<pre>
+{% endblock %}
