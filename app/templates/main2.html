@@ -26,7 +26,7 @@
       <!-- Цены на товар (с учетом скидки и без)-->
         <div class="card__prices">
             <div class="card__price card__price--discount">{{post.cost}}</div>
-            <div class="card__price card__price--common">{{post.cost * 1.1}}</div>
+            <div class="card__price card__price--common">{{(post.cost * 1.1)|int}}</div>
         </div>
         <!-- Ссылка-название товара -->
         <div class="truncate">
